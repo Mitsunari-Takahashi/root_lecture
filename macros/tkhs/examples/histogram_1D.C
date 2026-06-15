@@ -23,7 +23,7 @@ void histogram_1D(){
     float energy, l, b, zenith, azimuth, time;
 
     while(ifs >> energy >> l >> b >> zenith >> azimuth >> time){
-        hist->/*ここを変えて*/;
+        hist->Fill(energy);
     }
   
     // Construct a canvas
