@@ -2,10 +2,10 @@
 
 void histogram_1D(){
     // Construct a 1D histogram
-    const Int_t NBIN_ENERGY = 100; 
-    const Int_t ENERGY_MIN = 0;
-    const Int_t ENERGY_MAX = 100000; //100 GeV
-    TH1D* hist = /*ここを変えて*/ /*ここを変えて*/("hist_1D", "Count spectrum;Energy [MeV];[events]", /*ここを変えて*/, /*ここを変えて*/, /*ここを変えて*/);
+    const int NBIN_ENERGY = 100; 
+    const int ENERGY_MIN = 0;
+    const int ENERGY_MAX = 100000; //100 GeV
+    TH1F* hist = /*ここを変えて*/ /*ここを変えて*/("hist_1D", "Count spectrum;Energy [MeV];[events]", /*ここを変えて*/, /*ここを変えて*/, /*ここを変えて*/);
     // Make the histogram fancy
     hist->SetFillStyle(3001);
     hist->SetFillColor(kBlue);
@@ -17,10 +17,10 @@ void histogram_1D(){
     // Check if input file is open
     if(!ifs.is_open()){
         cout << "Input file is not opened!" << endl;
-        return 0;
+        return ;
     } 
     // Fill the values to the histogram
-    Double_t energy, l, b, zenith, azimuth, time;
+    float energy, l, b, zenith, azimuth, time;
 
     while(ifs >> energy >> l >> b >> zenith >> azimuth >> time){
         hist->/*ここを変えて*/;
@@ -31,5 +31,4 @@ void histogram_1D(){
     // Draw the histogram
     can->cd();
     hist->Draw();
-
 }
