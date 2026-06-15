@@ -2,11 +2,11 @@
 
 void histogram_1D_weight_zenithcut(){
     // Define your X-axis flexibly
-    const Int_t NBIN_ENERGY = 100; 
-    const Int_t ENERGY_MIN = 300; //300 MeV
-    const Int_t ENERGY_MAX = 100000; //100 GeV
-    Double_t xbins[NBIN_ENERGY+1];
-    const Double_t LOGE_BINWIDTH = (log10(ENERGY_MAX) - log10(ENERGY_MIN)) / NBIN_ENERGY; // Divide the X-axis by an equivalent width in log-space
+    const int NBIN_ENERGY = 100; 
+    const int ENERGY_MIN = 300; //300 MeV
+    const int ENERGY_MAX = 100000; //100 GeV
+    double xbins[NBIN_ENERGY+1];
+    const double LOGE_BINWIDTH = (log10(ENERGY_MAX) - log10(ENERGY_MIN)) / NBIN_ENERGY; // Divide the X-axis by an equivalent width in log-space
     for(int ibin=0; ibin<NBIN_ENERGY; ibin++){
         xbins[ibin] = ENERGY_MIN * pow(10, LOGE_BINWIDTH * ibin);
     }
@@ -24,10 +24,10 @@ void histogram_1D_weight_zenithcut(){
     // Check if input file is open
     if(!ifs.is_open()){
         cout << "Input file is not opened!" << endl;
-        return 0;
+        return;
     } 
     // Fill the values to the histogram
-    Double_t energy, l, b, zenith, azimuth, time;
+    double energy, l, b, zenith, azimuth, time;
 
     while(ifs >> energy >> l >> b >> zenith >> azimuth >> time){
       /*ここを変えて*/

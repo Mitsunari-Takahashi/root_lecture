@@ -2,9 +2,9 @@
 
 void histogram_1D_logE(){
     // Construct a 1D histogram
-    const Int_t NBIN_ENERGY = 100; 
-    const Int_t ENERGY_MIN = 300; //100 MeV
-    const Int_t ENERGY_MAX = 100000; //100 GeV
+    const int NBIN_ENERGY = 100; 
+    const int ENERGY_MIN = 300; //100 MeV
+    const int ENERGY_MAX = 100000; //100 GeV
     TH1D* hist = new TH1D("hist_1D", "Count spectrum;log_{10}(Energy[MeV]);[events]", NBIN_ENERGY, log10(/*ここを変えて*/), log10(/*ここを変えて*/));
     // Make the histogram fancy
     hist->SetFillStyle(3001);
@@ -17,10 +17,10 @@ void histogram_1D_logE(){
     // Check if input file is open
     if(!ifs.is_open()){
         cout << "Input file is not opened!" << endl;
-        return 0;
+        return;
     } 
     // Fill the values to the histogram
-    Double_t energy, l, b, zenith, azimuth, time;
+    double energy, l, b, zenith, azimuth, time;
     while(ifs >> energy >> l >> b >> zenith >> azimuth >> time){
         hist->Fill(/*ここを変えて*/);
     }
